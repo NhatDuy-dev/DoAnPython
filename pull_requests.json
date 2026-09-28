@@ -1,0 +1,64 @@
+[
+    {
+        "id": "PR001",
+        "title": "Add login feature",
+        "author": "Duy",
+        "description": "",
+        "quality_checks": {
+            "tests_passed": true,
+            "lint_passed": true
+        },
+        "quality_score": 85,
+        "danh_sach_file": [
+            "src/login.py",
+            "tests/test_login.py"
+        ],
+        "so_file_thay_doi": 2,
+        "so_dong_them": 10,
+        "so_dong_xoa": 5,
+        "co_chua_file_nhay_cam": false,
+        "risk_score": 9,
+        "risk_level": "LOW",
+        "reviewer": "Binh",
+        "comments": [],
+        "approved": false,
+        "status": "REQUEST_CHANGES",
+        "required_reviewers": 1,
+        "reviewers": [
+            "Binh"
+        ]
+    },
+    {
+        "id": "PR002",
+        "title": "Update user API",
+        "author": "Minh",
+        "description": "Cập nhật API người dùng.",
+        "quality_checks": {
+            "tests_passed": false,
+            "lint_passed": true
+        },
+        "quality_score": 65,
+        "danh_sach_file": [
+            "src/api.py",
+            "src/user.py",
+            "tests/test_api.py",
+            "tests/test_user.py",
+            "README.md",
+            "config/database.env"
+        ],
+        "so_file_thay_doi": 6,
+        "so_dong_them": 350,
+        "so_dong_xoa": 120,
+        "co_chua_file_nhay_cam": true,
+        "risk_score": 67,
+        "risk_level": "HIGH",
+        "reviewer": "Binh",
+        "comments": [],
+        "approved": true,
+        "status": "MERGED",
+        "required_reviewers": 1,
+        "reviewers": [
+            "Binh"
+        ]
+    }
+]

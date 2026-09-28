@@ -1,0 +1,225 @@
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #f5f6fa;
+
+    margin: 0;
+
+}
+
+
+/* Khung chính */
+
+.dashboard {
+
+    padding: 40px;
+
+    max-width: 1400px;
+
+    margin: auto;
+
+}
+
+
+
+/* Tiêu đề */
+
+h1 {
+
+    text-align: center;
+
+    font-size: 36px;
+
+    margin-bottom: 40px;
+
+}
+
+
+
+/* Card thống kê */
+
+.cards {
+
+    display: flex;
+
+    gap: 25px;
+
+    justify-content: center;
+
+    margin-bottom: 40px;
+
+}
+
+
+
+.cards div {
+
+    width: 220px;
+
+    height: 110px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+
+.cards h3 {
+
+    margin: 5px;
+
+    font-size: 18px;
+
+}
+
+
+
+.cards b {
+
+    font-size: 38px;
+
+}
+
+
+
+/* Khu vực biểu đồ */
+
+.charts {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 40px;
+    flex-wrap: wrap;
+
+}
+
+
+
+/* Box */
+
+.box {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    margin-top: 25px;
+
+}
+
+
+
+.charts .box {
+
+    width: 450px;
+
+    height: 380px;
+
+}
+
+
+
+.box h2 {
+
+    text-align: center;
+
+}
+
+
+
+/* Bảng Reviewer */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 15px;
+
+}
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+
+
+th {
+
+    background: #eeeeee;
+
+}
+
+
+
+th, td {
+
+    border: 1px solid #ddd;
+
+    padding: 14px;
+
+    text-align: center;
+
+}
+
+
+
+/* Metrics */
+
+.metrics {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 40px;
+
+    margin-top: 30px;
+
+}
+
+
+
+.metrics div {
+
+    width: 300px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+}
+
+
+
+.metrics b {
+
+    font-size: 32px;
+
+}

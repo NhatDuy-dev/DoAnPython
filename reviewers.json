@@ -1,0 +1,17 @@
+[
+    {
+        "name": "An",
+        "skills": ["backend", "tests"],
+        "active": true
+    },
+    {
+        "name": "Binh",
+        "skills": ["backend", "security"],
+        "active": true
+    },
+    {
+        "name": "Chi",
+        "skills": ["frontend", "docs", "tests"],
+        "active": true
+    }
+]
