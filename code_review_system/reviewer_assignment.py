@@ -1,14 +1,14 @@
-"""Kết nối chương trình quản lý PR với module TV2 trong thư mục group."""
+"""Kết nối chương trình quản lý PR với reviewer service."""
 
 import json
 from pathlib import Path
 
-from group.app import database as tv2_database
-from group.app import service as tv2_service
-from group.app.schemas import PullRequestIn, ReviewerIn
+from reviewer_service.app import database as tv2_database
+from reviewer_service.app import service as tv2_service
+from reviewer_service.app.schemas import PullRequestIn, ReviewerIn
 
 
-REVIEWERS_FILE = Path(__file__).with_name("reviewers.json")
+REVIEWERS_FILE = Path(__file__).resolve().parents[1] / "data" / "reviewers.json"
 _duong_dan_da_khoi_tao = None
 
 

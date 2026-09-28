@@ -1,7 +1,6 @@
 import contextlib
 import io
 import json
-import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -10,16 +9,14 @@ from fastapi.testclient import TestClient
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "PR-Dashboard" / "backend"))
 
-import main as dashboard_api
-import review_manager
-from reviewer_assignment import phan_cong_reviewer
-from group.app import database as tv2_database
-from group.app import service as tv2_service
-from group.app.main import app as tv2_app
-from group.app.schemas import PullRequestIn
+from dashboard.backend import main as dashboard_api
+from code_review_system import review_manager
+from code_review_system.reviewer_assignment import phan_cong_reviewer
+from reviewer_service.app import database as tv2_database
+from reviewer_service.app import service as tv2_service
+from reviewer_service.app.main import app as tv2_app
+from reviewer_service.app.schemas import PullRequestIn
 
 
 class WorkflowTest(unittest.TestCase):
@@ -27,7 +24,7 @@ class WorkflowTest(unittest.TestCase):
         self.folder = tempfile.TemporaryDirectory()
         self.data_file = Path(self.folder.name) / "pull_requests.json"
         self.data_file.write_text(
-            (ROOT / "pull_requests.json").read_text(encoding="utf-8"),
+            (ROOT / "data" / "pull_requests.json").read_text(encoding="utf-8"),
             encoding="utf-8",
         )
         self.file_patch = patch.object(review_manager, "FILE_NAME", self.data_file)
@@ -94,15 +91,16 @@ class WorkflowTest(unittest.TestCase):
         self.assertEqual(tv2_service.get_pr("PR001")["risk_score"], 51)
 
     def test_tv2_reassignment_updates_json_and_dashboard(self):
-        review_manager.load_data()
-        self.assertEqual(tv2_service.current_assignments("PR001")[0].reviewer_id, "An")
+        data = review_manager.load_data()
+        original_reviewer = data[0]["reviewer"]
+        self.assertEqual(tv2_service.current_assignments("PR001")[0].reviewer_id, original_reviewer)
         with TestClient(tv2_app) as client:
-            response = client.post("/pull-requests/PR001/assignments/An/reassign")
+            response = client.post(f"/pull-requests/PR001/assignments/{original_reviewer}/reassign")
             self.assertEqual(response.status_code, 200)
             result = response.json()
         self.assertEqual(result["assigned"], 1)
         nguoi_moi = result["assignments"][0]["reviewer_id"]
-        self.assertNotEqual(nguoi_moi, "An")
+        self.assertNotEqual(nguoi_moi, original_reviewer)
 
         overview = dashboard_api.build_dashboard()
         self.assertEqual(overview["pull_requests"][0]["reviewer"], nguoi_moi)
@@ -142,8 +140,9 @@ class WorkflowTest(unittest.TestCase):
     def test_manager_reassignment_updates_tv2(self):
         data = review_manager.load_data()
         pr = data[0]
+        original_reviewer = pr["reviewer"]
         self.assertTrue(phan_cong_reviewer(pr, bat_buoc=True))
-        self.assertNotEqual(pr["reviewer"], "An")
+        self.assertNotEqual(pr["reviewer"], original_reviewer)
         self.assertEqual(pr["reviewer"], tv2_service.current_assignments(pr["id"])[0].reviewer_id)
         review_manager.save_data(data)
         saved = json.loads(self.data_file.read_text(encoding="utf-8"))[0]

@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, Iterator, Optional
 
 
-DB_PATH = os.getenv("TV2_DB_PATH", str(Path(__file__).resolve().parents[1] / "tv2.db"))
+DB_PATH = os.getenv("TV2_DB_PATH", str(Path(__file__).resolve().parents[2] / "data" / "tv2.db"))
 
 
 @contextmanager

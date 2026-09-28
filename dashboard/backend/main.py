@@ -1,14 +1,8 @@
-import sys
-from pathlib import Path
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-
-# Chia sẻ nguồn dữ liệu và công thức rủi ro với chương trình quản lý PR.
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from review_manager import load_data  # noqa: E402
-from quality_checker import tinh_diem_chat_luong  # noqa: E402
+from code_review_system.review_manager import load_data
+from code_review_system.quality_checker import tinh_diem_chat_luong
 
 
 app = FastAPI(title="Pull Request Quality Dashboard")

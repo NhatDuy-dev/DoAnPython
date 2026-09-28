@@ -1,14 +1,15 @@
 """Nạp dữ liệu mẫu và in một lần phân công để demo nhanh."""
 import os
 import sys
+from pathlib import Path
 
-os.environ.setdefault("TV2_DB_PATH", "demo_tv2.db")
+os.environ.setdefault("TV2_DB_PATH", str(Path(__file__).resolve().parents[1] / "data" / "demo_tv2.db"))
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
-from app.database import init_db
-from app.schemas import PullRequestIn, ReviewerIn
-from app.service import assign, upsert_reviewer
+from reviewer_service.app.database import init_db
+from reviewer_service.app.schemas import PullRequestIn, ReviewerIn
+from reviewer_service.app.service import assign, upsert_reviewer
 
 init_db()
 for reviewer in [

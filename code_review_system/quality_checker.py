@@ -1,6 +1,6 @@
 import json
 
-from risk_calculator import FILE_NAME
+from .risk_calculator import FILE_NAME
 
 
 # Điểm dựa trên kết quả kiểm tra được ghi trong JSON và thông tin của PR.

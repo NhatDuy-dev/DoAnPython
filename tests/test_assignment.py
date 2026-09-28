@@ -4,16 +4,16 @@ os.environ["TV2_DB_PATH"] = "test_tv2.db"
 
 import pytest
 
-from app.database import init_db
-from app.schemas import PullRequestIn, ReviewerIn
-from app.service import assign, current_assignments, reassign, stats, upsert_reviewer
+from reviewer_service.app.database import init_db
+from reviewer_service.app.schemas import PullRequestIn, ReviewerIn
+from reviewer_service.app.service import assign, current_assignments, reassign, stats, upsert_reviewer
 
 
 @pytest.fixture(autouse=True)
 def clean_db(tmp_path, monkeypatch):
     path = tmp_path / "tv2.db"
     monkeypatch.setenv("TV2_DB_PATH", str(path))
-    import app.database as database
+    import reviewer_service.app.database as database
     database.DB_PATH = str(path)
     init_db()
 

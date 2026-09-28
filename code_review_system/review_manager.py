@@ -1,7 +1,7 @@
 import json
-from quality_checker import cap_nhat_chat_luong, tinh_diem_chat_luong
-from reviewer_assignment import phan_cong_reviewer
-from risk_calculator import FILE_NAME, cap_nhat_rui_ro
+from .quality_checker import cap_nhat_chat_luong, tinh_diem_chat_luong
+from .reviewer_assignment import phan_cong_reviewer
+from .risk_calculator import FILE_NAME, cap_nhat_rui_ro
 
 
 # ==============================

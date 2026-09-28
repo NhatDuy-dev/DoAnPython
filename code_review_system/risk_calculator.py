@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 
-FILE_NAME = Path(__file__).with_name("pull_requests.json")
+FILE_NAME = Path(__file__).resolve().parents[1] / "data" / "pull_requests.json"
 MUC_DO_TIENG_ANH = {"THAP": "LOW", "TRUNG BINH": "MEDIUM", "CAO": "HIGH"}
 
 
