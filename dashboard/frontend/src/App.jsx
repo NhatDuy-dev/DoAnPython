@@ -6,7 +6,7 @@ import {
 } from "recharts";
 import "./style.css";
 
-const API_URL = "http://127.0.0.1:8000/dashboard/overview";
+const API_URL = "http://127.0.0.1:8002/dashboard/overview";
 const STATUS_COLORS = ["#3b82f6", "#22c55e", "#ef4444", "#8b5cf6"];
 
 function App() {

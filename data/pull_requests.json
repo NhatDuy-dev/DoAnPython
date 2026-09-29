@@ -1,28 +1,27 @@
 [
     {
         "id": "PR001",
-        "title": "Add login feature",
+        "title": "Chinh sua",
         "author": "Duy",
-        "description": "",
+        "description": "hazzz",
         "quality_checks": {
             "tests_passed": true,
             "lint_passed": true
         },
-        "quality_score": 85,
+        "quality_score": 80,
         "danh_sach_file": [
-            "src/login.py",
-            "tests/test_login.py"
+            "kaka"
         ],
-        "so_file_thay_doi": 2,
+        "so_file_thay_doi": 1,
         "so_dong_them": 10,
-        "so_dong_xoa": 5,
+        "so_dong_xoa": 2,
         "co_chua_file_nhay_cam": false,
-        "risk_score": 9,
+        "risk_score": 7,
         "risk_level": "LOW",
         "reviewer": "Binh",
         "comments": [],
         "approved": false,
-        "status": "REQUEST_CHANGES",
+        "status": "IN_REVIEW",
         "required_reviewers": 1,
         "reviewers": [
             "Binh"

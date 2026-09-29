@@ -8,7 +8,7 @@ Terminal 1 (backend):
 
 ```powershell
 python -m pip install -r requirements.txt
-python -m uvicorn dashboard.backend.main:app --reload
+python -m uvicorn dashboard.backend.main:app --reload --port 8002
 ```
 
 Terminal 2 (frontend):
