@@ -33,6 +33,8 @@ Chọn `3` để tạo PR. Nhập danh sách file thay đổi, số dòng thêm/
 
 Trong menu đánh giá, mục `3` chỉ ghi nhận yêu cầu chỉnh sửa. Mục `7` dùng để sửa thật các trường của PR (tiêu đề, mô tả, file, số dòng, kết quả test/lint); nhấn Enter để giữ giá trị cũ. Sau khi sửa, điểm được tính lại và PR cần phê duyệt lại. Mục `6` phân công lại reviewer. PR đã gộp chỉ có thể xem; hãy chọn PR001 hoặc tạo PR mới để thử các thao tác.
 
+Log và hướng dẫn chạy thực nghiệm thêm comment, kiểm tra Approval bị chặn khi comment còn mở: [docs/COMMENT_APPROVAL_EXPERIMENT.md](docs/COMMENT_APPROVAL_EXPERIMENT.md).
+
 Có thể chạy riêng hai phần tính điểm:
 
 ```powershell
