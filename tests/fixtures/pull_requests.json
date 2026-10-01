@@ -1,0 +1,34 @@
+[
+  {
+    "id": "PR001",
+    "title": "Chinh sua",
+    "author": "Duy",
+    "description": "hazzz",
+    "quality_checks": {"tests_passed": true, "lint_passed": true},
+    "danh_sach_file": ["kaka"],
+    "so_dong_them": 10,
+    "so_dong_xoa": 2,
+    "reviewer": "Binh",
+    "comments": [],
+    "approved": false,
+    "status": "IN_REVIEW",
+    "required_reviewers": 1,
+    "reviewers": ["Binh"]
+  },
+  {
+    "id": "PR002",
+    "title": "Update user API",
+    "author": "Minh",
+    "description": "Cập nhật API người dùng.",
+    "quality_checks": {"tests_passed": false, "lint_passed": true},
+    "danh_sach_file": ["src/api.py", "src/user.py", "tests/test_api.py", "tests/test_user.py", "README.md", "config/database.env"],
+    "so_dong_them": 350,
+    "so_dong_xoa": 120,
+    "reviewer": "Binh",
+    "comments": [],
+    "approved": true,
+    "status": "MERGED",
+    "required_reviewers": 1,
+    "reviewers": ["Binh"]
+  }
+]

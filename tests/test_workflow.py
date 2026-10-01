@@ -24,7 +24,7 @@ class WorkflowTest(unittest.TestCase):
         self.folder = tempfile.TemporaryDirectory()
         self.data_file = Path(self.folder.name) / "pull_requests.json"
         self.data_file.write_text(
-            (ROOT / "data" / "pull_requests.json").read_text(encoding="utf-8"),
+            (ROOT / "tests" / "fixtures" / "pull_requests.json").read_text(encoding="utf-8"),
             encoding="utf-8",
         )
         self.file_patch = patch.object(review_manager, "FILE_NAME", self.data_file)
@@ -82,13 +82,13 @@ class WorkflowTest(unittest.TestCase):
 
         overview = dashboard_api.build_dashboard()
         first = overview["pull_requests"][0]
-        self.assertEqual((first["risk_score"], first["risk_level"]), (51, "HIGH"))
-        self.assertEqual(first["quality_score"], 50)
-        self.assertEqual(overview["risk_score"]["high"], 2)
+        self.assertEqual((first["risk_score"], first["risk_level"]), (49, "MEDIUM"))
+        self.assertEqual(first["quality_score"], 45)
+        self.assertEqual(overview["risk_score"]["high"], 1)
         saved = json.loads(self.data_file.read_text(encoding="utf-8"))[0]
-        self.assertEqual(saved["risk_score"], 51)
-        self.assertEqual(saved["quality_score"], 50)
-        self.assertEqual(tv2_service.get_pr("PR001")["risk_score"], 51)
+        self.assertEqual(saved["risk_score"], 49)
+        self.assertEqual(saved["quality_score"], 45)
+        self.assertEqual(tv2_service.get_pr("PR001")["risk_score"], 49)
 
     def test_tv2_reassignment_updates_json_and_dashboard(self):
         data = review_manager.load_data()

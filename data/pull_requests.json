@@ -59,5 +59,40 @@
         "reviewers": [
             "Binh"
         ]
+    },
+    {
+        "id": "PR003",
+        "title": "1",
+        "author": "1",
+        "description": "3",
+        "danh_sach_file": [
+            "1"
+        ],
+        "so_dong_them": 2,
+        "so_dong_xoa": 2,
+        "quality_checks": {
+            "tests_passed": false,
+            "lint_passed": false
+        },
+        "reviewer": "Chi",
+        "comments": [
+            {
+                "id": 1,
+                "content": "cần đánh giá lại",
+                "severity": "HIGH",
+                "resolved": false
+            }
+        ],
+        "approved": false,
+        "status": "IN_REVIEW",
+        "so_file_thay_doi": 1,
+        "co_chua_file_nhay_cam": false,
+        "risk_score": 7,
+        "risk_level": "LOW",
+        "quality_score": 15,
+        "required_reviewers": 1,
+        "reviewers": [
+            "Chi"
+        ]
     }
 ]
